@@ -4,6 +4,12 @@ This file parses Selenium IDE pytest export files for action methods and appends
 
 import os
 
+targets = []
+# CONFIGURATION
+for o in range (1, 8):
+    targets.append(f'10.0.{o}.1/index.html')
+
+
 # overwrite shooter file with template
 def use_template(template_path, shooter_path):
 
@@ -59,3 +65,7 @@ for file in os.listdir(export_directory_path):
     if os.path.isfile(export_path):
         parse_and_append_action(export_path, shooter_path, method_string, i)
         i+=1
+
+with open(shooter_path, 'a') as shooter_file:
+    run_string = f'if __name__ == "__main__":\n\tTestTypesearch().shoot([{targets}])'
+    shooter_file.write(run_string)

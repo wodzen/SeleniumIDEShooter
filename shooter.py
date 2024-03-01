@@ -1,3 +1,8 @@
+
+'''
+This file dynamically calls
+'''
+
 import pytest
 import time
 import json
@@ -9,8 +14,6 @@ from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 import sys
-
-
 
 class TestTypesearch():
 
@@ -88,6 +91,6 @@ class TestTypesearch():
     element = self.driver.find_element(By.CSS_SELECTOR, "body")
     actions = ActionChains(self.driver)
     actions.move_to_element(element, 0, 0).perform()
-
+  
 if __name__ == "__main__":
-    TestTypesearch().shoot(["google.com"])
+	TestTypesearch().shoot([['10.0.1.1/index.html', '10.0.2.1/index.html', '10.0.3.1/index.html', '10.0.4.1/index.html', '10.0.5.1/index.html', '10.0.6.1/index.html', '10.0.7.1/index.html']])
